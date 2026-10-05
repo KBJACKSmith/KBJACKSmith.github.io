@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AstraLoc Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for AstraLoc (com.astraloc.app).">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #071419;
+      --panel: #0d2228;
+      --text: #edf7f7;
+      --muted: #b9caca;
+      --accent: #2ee6c8;
+      --border: #1f6666;
+      --link: #62f1db;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 22px 64px;
+    }
+    header {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { margin-top: 0; font-size: 2rem; }
+    h2 {
+      margin-top: 34px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--border);
+    }
+    a { color: var(--link); }
+    code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      background: var(--panel);
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid var(--border);
+      padding: 12px;
+    }
+    th { color: var(--accent); }
+    .meta, .muted { color: var(--muted); }
+    .notice {
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      background: var(--panel);
+      margin: 18px 0;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7fbfb;
+        --panel: #ffffff;
+        --text: #172126;
+        --muted: #53656a;
+        --accent: #008f83;
+        --border: #b9dede;
+        --link: #007d73;
+      }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>AstraLoc Privacy Policy</h1>
+    <p class="meta"><strong>Effective date:</strong> October 6, 2026<br>
+    <strong>Last updated:</strong> October 6, 2026</p>
+    <p>
+      This Privacy Policy explains how <strong>AstraLoc</strong> (package name
+      <code>com.astraloc.app</code>) accesses, uses, stores, and shares information
+      when you use the AstraLoc Android application.
+    </p>
+  </header>
+
+  <div class="notice">
+    AstraLoc is designed as an offline-first navigation utility. Core calculations are
+    performed on the device where practical. AstraLoc does not intentionally build a
+    hidden history of your movements and does not use your saved waypoint names or
+    coordinates for advertising targeting by AstraLoc application code.
+  </div>
+
+  <h2>1. Information AstraLoc accesses and how it is used</h2>
+
+  <h3>Location information</h3>
+  <p>
+    AstraLoc may request foreground/while-in-use location permission. Location is used
+    to provide user-requested features such as calculating True North, altitude, Qibla
+    direction, your current origin, bearings and distances to fixed or saved
+    destinations, and related location-based utility functions.
+  </p>
+  <p>
+    The current R1 release does <strong>not</strong> request background-location
+    permission. AstraLoc does not request precise location solely for advertising or
+    analytics.
+  </p>
+
+  <h3>Device sensor information</h3>
+  <p>
+    AstraLoc may use device sensors such as the magnetometer, accelerometer, gravity or
+    rotation sensors, gyroscope where available, and barometric pressure sensor where
+    available. These readings support the Compass, Level, Altimeter, Qibla, and
+    direction features.
+  </p>
+  <p>
+    Raw sensor streams and precise GPS coordinates are not intentionally included in
+    AstraLoc's general analytics or advertising-targeting logic.
+  </p>
+
+  <h3>Saved waypoints and app settings</h3>
+  <p>
+    If you save a waypoint or manual origin, AstraLoc stores the name and coordinates
+    locally on your device so that you can use, edit, or delete that destination later.
+    AstraLoc may also store local preferences such as display, unit, language, theme,
+    and entitlement-related settings.
+  </p>
+  <p>
+    AstraLoc does not silently create a movement history from your location. Saved
+    waypoint data remains under your control and is not intentionally uploaded to an
+    AstraLoc server merely because it is saved.
+  </p>
+
+  <h3>Purchase and entitlement verification</h3>
+  <p>
+    AstraLoc offers a Google Play in-app purchase for Lifetime functionality. Google
+    Play processes the financial transaction. AstraLoc does not receive or store your
+    full payment-card or bank-account details.
+  </p>
+  <p>
+    To verify and restore entitlement, AstraLoc may send purchase-verification
+    information such as the app package name, product identifier, and Google Play
+    purchase token to AstraLoc's verification service hosted using Google Cloud
+    infrastructure. Verification responses may include entitlement status,
+    acknowledgement status, test-purchase status, and Google Play order information.
+    This information is used to validate and maintain your purchased entitlement and
+    to prevent fraud or unauthorized access.
+  </p>
+
+  <h3>Advertising and consent information</h3>
+  <p>
+    The free version of AstraLoc uses Google AdMob / the Google Mobile Ads SDK. Depending
+    on your device, region, settings, and consent choices, Google Mobile Ads may process
+    information such as:
+  </p>
+  <ul>
+    <li>IP address, which may be used to estimate general location;</li>
+    <li>app interactions and ad interactions;</li>
+    <li>diagnostic and performance information;</li>
+    <li>Android advertising ID, app-set ID, and other device/account identifiers where permitted; and</li>
+    <li>consent and privacy-choice information required for ad delivery.</li>
+  </ul>
+  <p>
+    AstraLoc uses Google's User Messaging Platform (UMP) to request and manage consent
+    where required. Ad serving is gated by the applicable consent state. Users in
+    supported regions may be given options to consent, decline consent, or manage their
+    privacy choices.
+  </p>
+  <p>
+    AstraLoc's own application logic does not use your saved waypoint names or precise
+    saved waypoint coordinates to target advertisements.
+  </p>
+
+  <h2>2. Summary of data handling</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Data or access</th>
+        <th>Purpose</th>
+        <th>Typical handling</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Foreground location</td>
+        <td>True North, altitude, Qibla, origin, bearings and distances</td>
+        <td>Processed primarily on-device; user-approved waypoint/origin coordinates may be stored locally</td>
+      </tr>
+      <tr>
+        <td>Compass, motion and pressure sensors</td>
+        <td>Compass, Level, Altimeter and directional calculations</td>
+        <td>Processed on-device; raw streams are not intentionally sent to general analytics</td>
+      </tr>
+      <tr>
+        <td>Saved waypoint names and coordinates</td>
+        <td>Saved destinations and Point-To functionality</td>
+        <td>Stored locally until you delete them, clear app data, or remove the app</td>
+      </tr>
+      <tr>
+        <td>Purchase-verification data</td>
+        <td>Verify, restore and protect Lifetime entitlement</td>
+        <td>Sent securely to AstraLoc's verification backend and Google Play services as needed</td>
+      </tr>
+      <tr>
+        <td>Advertising / device data</td>
+        <td>Ad delivery, consent, measurement, diagnostics and fraud prevention</td>
+        <td>Processed by Google Mobile Ads / AdMob according to Google policies and your consent choices</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Third-party services</h2>
+  <p>AstraLoc uses or may interact with the following third-party services:</p>
+  <ul>
+    <li><strong>Google AdMob / Google Mobile Ads SDK</strong> for advertising.</li>
+    <li><strong>Google User Messaging Platform (UMP)</strong> for privacy and consent choices.</li>
+    <li><strong>Google Play Billing</strong> for Lifetime purchase processing and purchase ownership.</li>
+    <li><strong>Google Cloud infrastructure</strong> for purchase-entitlement verification and related operational security.</li>
+    <li><strong>Google Play services and Android platform services</strong> for supported device functionality.</li>
+  </ul>
+  <p>
+    These services may process information under their own terms and privacy policies.
+    Google's privacy policy is available at
+    <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.
+  </p>
+  <p>
+    If a future AstraLoc release enables additional network-backed map, place-search,
+    routing, nearby-discovery, or other third-party services, this Privacy Policy and
+    applicable in-app disclosures will be updated to reflect those data flows.
+  </p>
+
+  <h2>4. When information may be shared</h2>
+  <p>AstraLoc may share or allow processing of information only as necessary for:</p>
+  <ul>
+    <li>providing advertising and privacy-consent functionality through Google;</li>
+    <li>processing and verifying Google Play purchases;</li>
+    <li>operating and securing purchase-verification infrastructure;</li>
+    <li>complying with applicable law, legal process, or valid governmental requests; or</li>
+    <li>protecting users, the service, or others from fraud, abuse, security threats, or unlawful activity.</li>
+  </ul>
+  <p>
+    AstraLoc does not directly sell your saved waypoint information or precise
+    location information.
+  </p>
+
+  <h2>5. Your choices and controls</h2>
+  <ul>
+    <li>
+      <strong>Location permission:</strong> You may deny or revoke location permission
+      in Android settings. Features that require current location may then become
+      unavailable or use a manual origin where supported.
+    </li>
+    <li>
+      <strong>Saved waypoints:</strong> You may edit or delete user-created saved
+      destinations from within AstraLoc.
+    </li>
+    <li>
+      <strong>Advertising ID:</strong> Android provides controls to reset or delete the
+      advertising ID, subject to Android/Google settings available on your device.
+    </li>
+    <li>
+      <strong>Ad consent:</strong> Where required, you can make or update advertising
+      privacy choices through the consent/privacy options provided in AstraLoc.
+    </li>
+    <li>
+      <strong>Remove Ads / Lifetime:</strong> A valid Lifetime entitlement disables
+      AstraLoc-controlled advertising in the app.
+    </li>
+  </ul>
+
+  <h2>6. Data retention and deletion</h2>
+  <p>
+    Locally stored waypoints and settings remain on your device until you delete them,
+    clear AstraLoc's app storage, or uninstall the app, subject to Android backup or
+    restore behavior that may apply to your device/account.
+  </p>
+  <p>
+    Purchase-entitlement information is retained or processed for as long as reasonably
+    necessary to verify, restore, secure, and support the Lifetime purchase. Google Play
+    independently retains transaction records according to Google's own policies and
+    legal obligations.
+  </p>
+  <p>
+    Operational server logs may be retained for a limited period for security,
+    reliability, fraud prevention, and troubleshooting. Third-party services retain
+    information according to their own policies and settings.
+  </p>
+  <p>
+    AstraLoc currently does not require creation of an AstraLoc user account. Therefore,
+    there is no separate AstraLoc account profile to delete. To remove locally stored
+    AstraLoc data, use the in-app delete controls where available, clear the app's
+    storage in Android settings, or uninstall the app.
+  </p>
+
+  <h2>7. Security</h2>
+  <p>
+    AstraLoc uses reasonable technical and organizational safeguards appropriate to
+    the data it handles. Network communications used for purchase verification and
+    Google SDK services use encrypted transport where supported by those services.
+    No method of electronic transmission or storage can be guaranteed to be completely
+    secure.
+  </p>
+
+  <h2>8. International processing</h2>
+  <p>
+    Google and other infrastructure providers used by AstraLoc may process information
+    in countries other than the country where you live. Their processing is governed
+    by their applicable privacy terms, safeguards, and legal obligations.
+  </p>
+
+  <h2>9. European and regional privacy choices</h2>
+  <p>
+    In regions where consent is required for personalized advertising or related
+    processing, AstraLoc uses Google's consent-management tools to request and record
+    the applicable choice before requesting ads where required. Depending on applicable
+    law and configuration, users may be offered choices to consent, not consent, or
+    manage options.
+  </p>
+  <p>
+    Other regional privacy rights may apply based on where you live. You may contact
+    us using the details below if you have a privacy-related question or request.
+  </p>
+
+  <h2>10. Children's privacy</h2>
+  <p>
+    AstraLoc is a general-purpose utility and is not designed specifically for children.
+    AstraLoc's own features do not require a user to submit a name, email address, or
+    account profile. Advertising and consent behavior is governed by Google Mobile Ads,
+    Google Play settings, the app's configured audience, and applicable law. If AstraLoc's
+    target audience or child-directed status changes, this policy and advertising
+    configuration will be reviewed and updated.
+  </p>
+
+  <h2>11. Changes to this Privacy Policy</h2>
+  <p>
+    We may update this Privacy Policy when AstraLoc's features, third-party services,
+    legal requirements, or data practices change. The "Last updated" date at the top of
+    this page will be revised when material changes are published.
+  </p>
+
+  <h2>12. Contact</h2>
+  <p>
+    <strong>App:</strong> AstraLoc<br>
+    <strong>Android package:</strong> <code>com.astraloc.app</code><br>
+    <strong>Developer website:</strong>
+    <a href="https://kbjacksmith.github.io/">https://kbjacksmith.github.io/</a><br>
+    <strong>Privacy contact:</strong>
+    <a href="mailto:kamal.balshi@gmail.com">kamal.balshi@gmail.com</a>
+  </p>
+
+  <p class="muted">
+    This policy applies to the current AstraLoc Android R1 release. Future releases may
+    introduce additional features and providers; relevant privacy disclosures will be
+    updated before or when those features are enabled.
+  </p>
+</main>
+</body>
+</html>
