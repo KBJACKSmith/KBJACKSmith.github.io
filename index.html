@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Official developer website for SpokyWorks mobile apps, including AstraLoc and NetPilot.">
+  <title>SpokyWorks Mobile Apps</title>
+  <style>
+    :root {
+      --bg: #061317;
+      --panel: #0b2228;
+      --panel2: #0e2c32;
+      --text: #eefafa;
+      --muted: #aec4c7;
+      --cyan: #2ee6c8;
+      --blue: #00f2fe;
+      --line: rgba(46,230,200,.24);
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --danger: #ff7f73;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(46,230,200,.11), transparent 32rem),
+        radial-gradient(circle at 90% 10%, rgba(0,242,254,.08), transparent 28rem),
+        linear-gradient(180deg, var(--bg), #030c0f 75%);
+      min-height: 100vh;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .logo {
+      width: 40px; height: 40px; border-radius: 13px;
+      display: grid; place-items: center;
+      border: 1px solid rgba(46,230,200,.5);
+      background: rgba(46,230,200,.07);
+      box-shadow: 0 0 28px rgba(46,230,200,.14);
+    }
+    .logo::before {
+      content: ""; width: 14px; height: 14px; border-radius: 50%;
+      border: 3px solid var(--cyan);
+      box-shadow: 0 0 14px rgba(46,230,200,.5);
+    }
+    .links { display: flex; gap: 22px; color: var(--muted); font-size: .95rem; }
+    .links a:hover { color: var(--text); }
+    .hero {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 44px;
+      align-items: center; padding: 72px 0 62px;
+    }
+    .eyebrow {
+      color: var(--cyan); text-transform: uppercase; letter-spacing: .16em;
+      font-size: .76rem; font-weight: 800;
+    }
+    h1 {
+      margin: 14px 0 18px; font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: .98; letter-spacing: -.045em;
+    }
+    .gradient {
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { color: var(--muted); font-size: 1.12rem; line-height: 1.75; max-width: 680px; }
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(14,44,50,.92), rgba(8,30,36,.94));
+      border-radius: 26px; padding: 28px; box-shadow: var(--shadow);
+    }
+    .hero-card h3 { margin: 0 0 10px; }
+    .hero-card p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .mini {
+      border: 1px solid rgba(46,230,200,.15); border-radius: 15px;
+      padding: 15px; background: rgba(255,255,255,.02);
+    }
+    .mini strong { display: block; color: var(--cyan); margin-bottom: 4px; }
+    section { padding: 38px 0; }
+    .title { margin-bottom: 22px; }
+    .title h2 { margin: 6px 0 0; font-size: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, var(--panel2), var(--panel));
+      border-radius: 24px; padding: 28px; box-shadow: 0 16px 45px rgba(0,0,0,.22);
+    }
+    .tag {
+      display: inline-block; color: var(--cyan); font-weight: 750; font-size: .78rem;
+      border: 1px solid rgba(46,230,200,.3); border-radius: 999px;
+      padding: 7px 10px; margin-bottom: 17px;
+    }
+    .card h3 { margin: 0 0 9px; font-size: 1.65rem; }
+    .card p { color: var(--muted); line-height: 1.65; margin: 0; }
+    ul { list-style: none; padding: 0; margin: 20px 0 24px; }
+    li { padding: 6px 0; color: #dbe9ea; }
+    li::before { content: "✓"; color: var(--cyan); font-weight: 900; margin-right: 10px; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      min-height: 42px; padding: 0 16px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(46,230,200,.35); font-weight: 750; font-size: .92rem;
+      background: rgba(46,230,200,.07); color: var(--text); cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(46,230,200,.65); }
+    .btn.primary {
+      color: white; border-color: transparent;
+      background: linear-gradient(90deg, #078f82, #087b86);
+    }
+    .contact {
+      border: 1px solid rgba(46,230,200,.18);
+      background: rgba(255,255,255,.025);
+      border-radius: 22px; padding: 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .contact p { color: var(--muted); margin: 6px 0 0; }
+    footer {
+      border-top: 1px solid rgba(46,230,200,.12);
+      color: var(--muted); margin-top: 34px; padding: 28px 0 42px;
+      font-size: .9rem;
+    }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* Contact modal */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      padding: 22px;
+    }
+    .modal-backdrop.show { display: flex; }
+    .modal {
+      width: min(720px, 100%);
+      max-height: calc(100vh - 44px);
+      overflow-y: auto;
+      border: 1px solid rgba(46,230,200,.28);
+      background: linear-gradient(160deg, #0d2a31, #071b20);
+      border-radius: 24px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+    }
+    .modal-header {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+      padding: 24px 24px 12px;
+    }
+    .modal-header h2 { margin: 4px 0 0; font-size: 1.65rem; }
+    .close {
+      width: 42px; height: 42px; border-radius: 12px;
+      border: 1px solid rgba(46,230,200,.25);
+      background: rgba(255,255,255,.035);
+      color: var(--text); font-size: 1.35rem; cursor: pointer;
+    }
+    form { padding: 12px 24px 26px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-weight: 700; font-size: .9rem; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(46,230,200,.22);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 13px;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(46,230,200,.09);
+    }
+    select option { color: #111; }
+    textarea { min-height: 150px; resize: vertical; }
+    .form-note {
+      color: var(--muted); font-size: .82rem; line-height: 1.55;
+      margin: 16px 0 0;
+    }
+    .form-actions {
+      display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;
+    }
+    .honeypot { position: absolute !important; left: -10000px !important; opacity: 0 !important; }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .links { display: none; }
+      .contact { flex-direction: column; align-items: flex-start; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden="true"></span>
+        <span>SpokyWorks Mobile Apps</span>
+      </a>
+      <div class="links">
+        <a href="#apps">Apps</a>
+        <a href="#support">Support</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Android apps • Practical utilities</div>
+        <h1>Useful tools.<br><span class="gradient">Built with care.</span></h1>
+        <p class="lead">
+          SpokyWorks builds independent mobile apps focused on practical utility,
+          dependable behavior, privacy-conscious design, and clear user experiences.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h3>Official developer website</h3>
+        <p>
+          Home of AstraLoc and NetPilot, with product information, privacy policies,
+          and developer support.
+        </p>
+        <div class="mini-grid">
+          <div class="mini"><strong>AstraLoc</strong><span>Navigation utility</span></div>
+          <div class="mini"><strong>NetPilot</strong><span>Network diagnostics</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section id="apps">
+      <div class="title">
+        <div class="eyebrow">Apps</div>
+        <h2>SpokyWorks applications</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">Android • Navigation</span>
+          <h3>AstraLoc</h3>
+          <p>
+            Smart Compass, Level, Altimeter, Qibla and Waypoints in one focused
+            utility for everyday orientation and direction finding.
+          </p>
+          <ul>
+            <li>Digital compass and heading quality</li>
+            <li>Bubble level and altitude tools</li>
+            <li>Qibla direction</li>
+            <li>Saved waypoints and Point-To guidance</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="/astraloc-privacy-policy.html">Privacy Policy</a>
+            <button class="btn open-contact" type="button" data-app="AstraLoc">Contact developer</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag">Android • Connectivity</span>
+          <h3>NetPilot</h3>
+          <p>
+            Internet speed and Wi-Fi diagnostic tools that help users understand
+            connection quality and troubleshoot common network issues.
+          </p>
+          <ul>
+            <li>Internet speed testing</li>
+            <li>Wi-Fi diagnostics</li>
+            <li>Connection-quality results</li>
+            <li>Practical troubleshooting information</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.netpilot.app">View on Google Play</a>
+            <a class="btn" href="/netpilot-privacy/">Privacy Policy</a>
+            <button class="btn open-contact" type="button" data-app="NetPilot">Contact developer</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="title">
+        <div class="eyebrow">Support</div>
+        <h2>Need help?</h2>
+      </div>
+      <div class="contact">
+        <div>
+          <strong>Contact the developer</strong>
+          <p>Send a support request, privacy question, bug report, or general enquiry.</p>
+        </div>
+        <button class="btn primary open-contact" type="button" data-app="">Contact developer</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <span>© 2026 SpokyWorks. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="/astraloc-privacy-policy.html">AstraLoc Privacy</a>
+          <a href="/netpilot-privacy/">NetPilot Privacy</a>
+          <a href="#support">Support</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <div class="eyebrow">SpokyWorks support</div>
+          <h2 id="contactTitle">Contact developer</h2>
+        </div>
+        <button class="close" id="closeContact" type="button" aria-label="Close contact form">×</button>
+      </div>
+
+      <form action="https://formsubmit.co/PEP.ManMedia@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New SpokyWorks website contact">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://kbjacksmith.github.io/thanks.html">
+        <input type="hidden" name="_url" value="https://kbjacksmith.github.io/">
+        <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" maxlength="160" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="app">App</label>
+            <select id="app" name="app">
+              <option value="">General enquiry</option>
+              <option value="AstraLoc">AstraLoc</option>
+              <option value="NetPilot">NetPilot</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="topic">Topic *</label>
+            <select id="topic" name="topic" required>
+              <option value="">Select a topic</option>
+              <option>Support request</option>
+              <option>Bug report</option>
+              <option>Privacy question</option>
+              <option>Purchase / billing</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="subject">Subject *</label>
+            <input id="subject" name="subject" type="text" maxlength="160" required>
+          </div>
+
+          <div class="field full">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" maxlength="5000" required></textarea>
+          </div>
+        </div>
+
+        <p class="form-note">
+          By submitting this form, the details you provide are sent to SpokyWorks for the
+          purpose of responding to your request. Form delivery is handled by FormSubmit.
+          Do not include passwords, payment-card details, or other highly sensitive information.
+        </p>
+
+        <div class="form-actions">
+          <button class="btn" id="cancelContact" type="button">Cancel</button>
+          <button class="btn primary" type="submit">Send message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const modal = document.getElementById('contactModal');
+      const closeButton = document.getElementById('closeContact');
+      const cancelButton = document.getElementById('cancelContact');
+      const appSelect = document.getElementById('app');
+      const nameInput = document.getElementById('name');
+
+      function openModal(app) {
+        if (app) appSelect.value = app;
+        modal.classList.add('show');
+        document.body.classList.add('modal-open');
+        setTimeout(() => nameInput.focus(), 50);
+      }
+
+      function closeModal() {
+        modal.classList.remove('show');
+        document.body.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('.open-contact').forEach(button => {
+        button.addEventListener('click', () => openModal(button.dataset.app || ''));
+      });
+
+      closeButton.addEventListener('click', closeModal);
+      cancelButton.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && modal.classList.contains('show')) closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>
