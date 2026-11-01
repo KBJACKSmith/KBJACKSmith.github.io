@@ -20,7 +20,7 @@
 <main>
 <header>
   <h1>AstraLoc Privacy Policy</h1>
-  <p class="meta"><strong>Effective date:</strong> October 6, 2026<br><strong>Last updated:</strong> October 6, 2026</p>
+  <p class="meta"><strong>Effective date:</strong> October 6, 2026<br><strong>Last updated:</strong> November 1, 2026</p>
   <p>This Privacy Policy explains how <strong>AstraLoc</strong>, a SpokyWorks application (package name <code>com.astraloc.app</code>), accesses, uses, stores, and shares information when you use the AstraLoc Android application or contact SpokyWorks about AstraLoc.</p>
 </header>
 
@@ -30,7 +30,7 @@
 
 <h3>Location information</h3>
 <p>AstraLoc may request foreground/while-in-use location permission. Location is used to provide user-requested features such as calculating True North, altitude, Qibla direction, your current origin, bearings and distances to fixed or saved destinations, and related location-based utility functions.</p>
-<p>The current R1 release does <strong>not</strong> request background-location permission. AstraLoc does not request precise location solely for advertising or analytics.</p>
+<p>The current R1 release does <strong>not</strong> request background-location permission. Your GPS position is not used for advertising or analytics and is never sent to our analytics or crash-reporting services. Google Analytics may estimate an approximate country, region and city from your internet (IP) address — see "Analytics and crash reports (Google Firebase)".</p>
 
 <h3>Device sensor information</h3>
 <p>AstraLoc may use device sensors such as the magnetometer, accelerometer, gravity or rotation sensors, gyroscope where available, and barometric pressure sensor where available. These readings support the Compass, Level, Altimeter, Qibla, and direction features.</p>
@@ -47,6 +47,17 @@
 <h3>Advertising and consent information</h3>
 <p>The free version of AstraLoc uses Google AdMob / the Google Mobile Ads SDK. Depending on your device, region, settings, and consent choices, Google Mobile Ads may process information such as IP address, app and ad interactions, diagnostic information, advertising/device identifiers where permitted, and privacy-choice information required for ad delivery.</p>
 <p>AstraLoc uses Google's User Messaging Platform (UMP) to request and manage consent where required. Ad serving is gated by the applicable consent state. AstraLoc's own application logic does not use your saved waypoint names or precise saved waypoint coordinates to target advertisements.</p>
+
+<h3>Analytics and crash reports (Google Firebase)</h3>
+<p>To find and fix problems and to understand which features are used, AstraLoc (version 1.0.5 and later) uses Google Firebase Analytics and Firebase Crashlytics. When "Share usage &amp; crash data" is on, the app sends:</p>
+<ul>
+<li><strong>Usage events</strong> — for example which screen you open (Compass, Level, Altimeter, Qibla, Waypoints), that the Qibla direction was aligned, that you opened calibration help, tapped Rate, Share, Buy or Restore, changed the app language, or saved a destination (only the number of saved destinations, never its name or position).</li>
+<li><strong>Crash reports</strong> — when the app stops or hits an error: the technical error details, app version, device model, Android version, memory and storage free, and a few app settings that help us diagnose the problem (app language, which motion sensors your phone has, compass quality, the open screen, whether Lifetime is active, and whether your location is set by GPS or manually).</li>
+<li><strong>Approximate location</strong> — country, region and city, which Google estimates from your internet (IP) address. AstraLoc never sends your GPS position.</li>
+<li><strong>App identifiers</strong> — a random Firebase installation ID. The Advertising ID is not collected by Firebase.</li>
+</ul>
+<p>We never send your GPS coordinates, saved place names or coordinates, your device's name, your Google account or email, phone number, IMEI/serial number or contacts.</p>
+<p>Data is sent encrypted (HTTPS) and processed by Google as our service provider under the Google Firebase terms (<a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>).</p>
 
 <h3>Contact form information</h3>
 <p>If you voluntarily use the SpokyWorks developer website contact form, you may provide your name, email address, selected app, topic, subject, and message. This information is used only to receive, investigate, and respond to your request.</p>
@@ -71,6 +82,7 @@
 <li><strong>Google User Messaging Platform (UMP)</strong> for privacy and consent choices.</li>
 <li><strong>Google Play Billing</strong> for Lifetime purchase processing and purchase ownership.</li>
 <li><strong>Google Cloud infrastructure</strong> for purchase-entitlement verification and related operational security.</li>
+<li><strong>Google Firebase Analytics and Firebase Crashlytics</strong> (Google LLC) — usage events and crash reports, as described in section 1. Privacy: <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
 <li><strong>Google Play services and Android platform services</strong> for supported device functionality.</li>
 <li><strong>FormSubmit</strong> for delivery of messages submitted through the SpokyWorks website contact form.</li>
 </ul>
@@ -86,6 +98,7 @@
 <li><strong>Advertising ID:</strong> Android provides controls to reset or delete the advertising ID, subject to device/Google settings.</li>
 <li><strong>Ad consent:</strong> Where required, you can make or update advertising privacy choices through AstraLoc's privacy options.</li>
 <li><strong>Remove Ads / Lifetime:</strong> A valid Lifetime entitlement disables AstraLoc-controlled advertising in the app.</li>
+<li><strong>Analytics and crash reports:</strong> You can turn analytics and crash reports off at any time in Settings → "Share usage &amp; crash data". When it is off, the app sends no usage events or crash reports.</li>
 </ul>
 
 <h2>6. Data retention and deletion</h2>
@@ -93,6 +106,14 @@
 <p>Purchase-entitlement information is retained or processed for as long as reasonably necessary to verify, restore, secure, and support the Lifetime purchase. Operational server logs may be retained for a limited period for security, reliability, fraud prevention, and troubleshooting.</p>
 <p>Contact-form messages may be retained for as long as reasonably necessary to respond, maintain support history, resolve disputes, and protect against abuse. FormSubmit may also retain submitted form data according to its own service practices.</p>
 <p>AstraLoc currently does not require creation of an AstraLoc user account. To remove locally stored AstraLoc data, use in-app delete controls where available, clear the app's storage in Android settings, or uninstall the app.</p>
+<p>Analytics data is kept for 2 months and crash reports for up to 90 days; after that they are deleted automatically.</p>
+
+<h3 id="data-deletion">How to request deletion of your data</h3>
+<ol>
+<li><strong>Data on your phone</strong> (saved destinations, settings): delete it in the app, clear AstraLoc's storage in Android Settings, or uninstall the app.</li>
+<li><strong>Analytics and crash reports:</strong> turn off Settings → "Share usage &amp; crash data" to stop new data. This data is not linked to your name, email or account, so we usually cannot find one person's records; existing data is deleted automatically after 2 months (analytics) or 90 days (crash reports).</li>
+<li><strong>Purchase verification and contact messages:</strong> email <strong><a href="mailto:PEP.ManMedia@gmail.com?subject=AstraLoc%20data%20deletion">PEP.ManMedia@gmail.com</a></strong> with the subject "AstraLoc data deletion" (for a purchase, include the Google Play order number). We reply within 30 days and delete what is not required to be kept for legal, tax or fraud-prevention reasons.</li>
+</ol>
 
 <h2>7. Security</h2>
 <p>AstraLoc and SpokyWorks use reasonable technical and organizational safeguards appropriate to the data handled. Network communications used for purchase verification, Google SDK services, and the website contact form use encrypted transport where supported by the respective services.</p>
@@ -102,6 +123,7 @@
 
 <h2>9. European and regional privacy choices</h2>
 <p>In regions where consent is required for personalized advertising or related processing, AstraLoc uses Google's consent-management tools to request and record the applicable choice before requesting ads where required. Other regional privacy rights may apply based on where you live.</p>
+<p>In the European Economic Area and the United Kingdom, analytics and crash reports stay off until you agree in the consent form shown by the app or turn on "Share usage &amp; crash data" yourself. You can change your choice at any time in Settings → "Privacy options" or with that switch.</p>
 
 <h2>10. Children's privacy</h2>
 <p>AstraLoc is a general-purpose utility and is not designed specifically for children. AstraLoc's own features do not require a user to submit a name, email address, or account profile. The optional website contact form should be used only to request support or communicate with the developer.</p>
