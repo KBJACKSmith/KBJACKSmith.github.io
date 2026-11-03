@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2563eb"><title>امتحان المهارات الحياتية - الصف الخامس</title>
+<style>
+    :root{font-family:Tahoma,Arial,"Noto Sans Arabic",sans-serif;color:#17243b;background:#f4f7fc;--blue:#2563eb;--blue-d:#1d4ed8;--green:#137a4c;--red:#b42336;--border:#dfe6f1;--muted:#5d6b83;--shadow:0 14px 40px rgba(25,56,110,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;line-height:1.85}
+    button{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #8bb5ff;outline-offset:3px}
+    button:disabled{cursor:not-allowed;opacity:.55}.wrapper{max-width:760px;margin:auto;padding:18px 14px 38px}
+    .brand{display:flex;gap:12px;align-items:center;margin:4px 0 17px}.logo{height:49px;width:49px;display:grid;place-items:center;background:#dbeafe;color:#1d4ed8;border-radius:17px;font-size:25px;flex-shrink:0}
+    .brand h1{margin:0;font-size:clamp(19px,4.8vw,25px);line-height:1.5}.brand p{margin:0;color:var(--muted);font-size:12px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:23px;box-shadow:var(--shadow);padding:clamp(18px,4.8vw,30px);margin-bottom:15px}
+    .eyebrow{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.1px}.hero-title{font-size:clamp(22px,5vw,30px);line-height:1.55;margin:9px 0}.lead{font-size:14px;color:var(--muted);margin:0 0 17px}
+    .lesson-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}.pick{min-height:82px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#fff;color:#394860;border:1.5px solid var(--border);border-radius:16px;padding:10px 6px;font-size:13px;font-weight:700;text-align:center;line-height:1.55}
+    .pick[aria-pressed="true"]{border-color:#3b82f6;background:#eff6ff;color:#1d4ed8;box-shadow:0 0 0 2px #cfe2ff inset}.pick small{font-size:11px;color:#64748b;font-weight:400}
+    .settings{display:flex;gap:10px;align-items:center;font-size:14px;margin:10px 0 18px;color:#334155}.settings input{width:19px;height:19px;accent-color:var(--blue)}
+    .primary,.secondary,.subtle{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:14px;padding:10px 18px;font-weight:700;border:1px solid transparent}
+    .primary{color:#fff;background:var(--blue);box-shadow:0 7px 16px rgba(37,99,235,.14)}.primary:active{background:var(--blue-d)}.secondary{color:#1e40af;background:#eef4ff;border-color:#cbdfff}.subtle{background:#fff;border-color:var(--border);color:#455570}
+    .full{width:100%}.button-row{display:flex;gap:10px;flex-wrap:wrap}.button-row>*{flex:1}.compact{min-height:42px;font-size:13px;padding:7px 10px}
+    .note{padding:13px 15px;background:#f8fafc;border:1px solid #e9eef5;border-radius:14px;color:#526179;font-size:13px;margin-top:16px}.note strong{color:#34465e}
+    .toprow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.chip{display:inline-flex;align-items:center;border-radius:999px;padding:5px 12px;background:#eaf2ff;color:#1e40af;font-size:12px;font-weight:700}.chip.secondary-chip{background:#f1f5f9;color:#475569}
+    .progress{width:100%;height:10px;background:#e8edf5;border-radius:100px;overflow:hidden;margin:10px 0 14px}.progress>div{height:100%;background:linear-gradient(90deg,#25a4e9,#2664eb);border-radius:inherit;transition:width .25s ease}
+    .question{font-size:clamp(19px,4.9vw,24px);font-weight:700;line-height:1.9;margin:12px 0 21px;color:#182943}.answers{display:grid;gap:11px}.choice{width:100%;display:flex;align-items:center;gap:14px;text-align:right;min-height:60px;border-radius:14px;border:1.5px solid #dce4f0;background:#fff;color:#253652;padding:12px 15px;line-height:1.7;font-weight:600;font-size:15px}.choice .letter{height:31px;width:31px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#f1f5f9;color:#496181;font-size:13px}
+    .choice:not(:disabled):hover{background:#f5f9ff;border-color:#9dbcf8}.choice.correct{background:#ecfdf4;border-color:#2dad73;color:#13613d}.choice.correct .letter{background:#cefade;color:#126342}.choice.wrong{background:#fff1f2;border-color:#ea7d90;color:#9c2438}.choice.wrong .letter{background:#ffe0e5;color:#a62036}
+    .choice.selected{border-color:#2563eb;background:#eff6ff;box-shadow:0 0 0 2px #bfdbfe inset;color:#153c87}.choice.selected .letter{background:#2563eb;color:white}.choice:disabled{opacity:1;cursor:default}.choice.muted{opacity:.62}.choice:disabled:hover{background:inherit}
+    .feedback{border:1px solid #b6e4cc;background:#ecfdf5;border-radius:15px;padding:13px 16px;margin-top:18px;color:#155b3d;font-size:14px}.feedback.error{border-color:#f4bdc5;background:#fff3f4;color:#892a3a}.feedback p{margin:4px 0 0}.feedback strong{display:block;font-size:15px}
+    .nav{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:22px}.nav button{flex:1}.phase-hint{font-size:13px;color:#5d6b83;margin:10px 0 0}.lesson-count{background:#f0f5ff;border:1px solid #d7e4ff;padding:12px 14px;border-radius:14px;color:#234a91;font-size:14px;font-weight:700;margin:18px 0}.step-label{display:inline-block;color:#234a91;font-size:13px;font-weight:bold;background:#f1f6ff;padding:5px 12px;border-radius:99px;margin:7px 0 2px}.smallhint{font-size:12px;color:#64748b;margin:8px 0 0}
+    .result-score{text-align:center;padding:12px 0 8px}.circle{margin:8px auto 13px;width:142px;height:142px;border:12px solid #dbeafe;border-top-color:#2563eb;border-right-color:#2563eb;border-radius:50%;display:grid;place-items:center;transform:rotate(-45deg)}.circle>span{display:block;transform:rotate(45deg);font-size:37px;font-weight:800;color:#1d4ed8;letter-spacing:-1px}.result-score h2{margin:0;font-size:23px}.result-score p{color:#64748b;margin:3px 0 12px;font-size:14px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}.metric{border-radius:15px;padding:13px 5px;background:#f4f7fd;text-align:center}.metric strong{font-size:23px;display:block;line-height:1.5}.metric small{font-size:11px;color:#65768e}
+    .section-title{font-size:17px;margin:19px 0 10px}.review-item{padding:13px 0;border-bottom:1px solid var(--border);font-size:14px}.review-item:last-child{border:0}.review-item strong{display:block;margin-bottom:7px;line-height:1.7}.review-item p{margin:3px 0;color:#145d42}.review-item .your-answer{color:#9b263d}.footer{text-align:center;font-size:12px;color:#7a8699;margin-top:15px}
+    @media(max-width:395px){.wrapper{padding:12px 9px 25px}.card{border-radius:19px;padding:16px}.chip{font-size:11px}.choice{font-size:14px;padding:11px}}
+    @media print{body{background:white}.wrapper{max-width:100%;padding:0}.brand{display:none}.card{box-shadow:none;border:0}.no-print{display:none!important}.review-item{break-inside:avoid}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress>div{transition:none}}
+    .choice .letter{border-radius:8px}.choice .letter.checkbox{border-radius:6px}
+    .type-instructions{font-size:14px;color:#425471;background:#f1f5ff;border:1px solid #dbe8ff;border-radius:12px;padding:10px 12px;margin:3px 0 14px}
+    .answer-list{margin:8px 0 0;padding-right:21px}.answer-list li{padding:3px 0}
+    .more-detail{margin:9px 0 0;font-size:13px}
+    .choice.selected::after{content:'تم الاختيار';font-size:11px;color:#1d4ed8;margin-inline-start:auto;white-space:nowrap}
+    @media(max-width:420px){.choice.selected::after{content:'✓'}}
+  
+  .offline-hint{font-size:14px;line-height:1.85;color:#5e4770;background:#faf5ff;border:1px solid #e9d5ff;border-radius:13px;padding:14px;margin:14px 0}
+  .mode-warning{color:#9a3412;background:#fff7ed;border:1px solid #fdba74;border-radius:12px;padding:12px;font-size:14px;margin-top:14px}
+  .version{color:#64748b;font-size:11px;margin-top:13px}
+  .choice{display:-webkit-box;display:-webkit-flex;display:flex;align-items:center}
+  .nav button{width:100%}
+  @media(max-width:450px){.brand{margin-bottom:11px}.wrapper{padding-top:14px}.question{line-height:1.75}.choice{min-height:56px}.card{padding:17px 15px}}
+</style>
+</head><body>
+<main class="wrapper">
+<header class="brand"><div class="logo" aria-hidden="true">📘</div><div><h1>تدريب المهارات الحياتية</h1><p>الصف الخامس • من الأوراق المرفقة فقط</p></div></header>
+<div id="app"><section class="card"><div class="eyebrow">الامتحان الكامل • الصف الخامس</div><h2 class="hero-title">تدريب المهارات الحياتية</h2>
+<p class="lead">31 سؤالًا من الدرسين، دون كتابة. اختر الإجابة، ثم أرسلها، ثم انتقل إلى السؤال التالي.</p>
+<div class="mode-warning"><strong>ملاحظة لأجهزة Android:</strong> إذا ظهرت هذه الرسالة بدل زر «ابدأ الامتحان»، فهذا يعني أن عارض الملف لم يشغّل JavaScript. على هاتف Infinix Hot 20: احفظ الملف في التنزيلات، وافتح تطبيق الملفات، ثم اختر «فتح باستخدام» → Google Chrome. لا تفتحه من معاينة واتساب أو تطبيق HTML Viewer.</div>
+</section></div>
+<footer class="footer">يعمل دون إنترنت • لا يحتاج إلى تسجيل دخول • نسخة Android 12 • تعمل في Chrome</footer>
+</main>
+<script>
+(function(){
+  'use strict';
+  // Basic JavaScript syntax is intentionally used for older Android WebViews.
+  // No external scripts, fonts, network requests, imports or service workers.
+    var TF=['صح','خطأ'];
+    // All 31 questions are sourced exclusively from the two pages supplied by the parent.
+    // Types: tf = true/false, mcq = one correct, multi = multiple correct.
+    var BANK=[
+      {id:'c01',lesson:1,type:'mcq',source:'من أسئلة الورقة',prompt:'ما المقصود بمهارات التواصل؟',options:[
+        'القدرة على مشاركة الأفكار وتبادل المعلومات والتفاعل مع الآخرين وبناء علاقات إيجابية',
+        'مقاطعة الآخرين وعدم الاستماع إلى آرائهم',
+        'سلوك عدواني متكرر يهدف إلى الإساءة إلى الآخرين'],correct:0,why:'مهارات التواصل هي القدرة على مشاركة الأفكار وتبادل المعلومات لفظيًا وغير لفظيًا، والتفاعل مع الآخرين وبناء علاقات إيجابية.'},
+      {id:'c02',lesson:1,type:'tf',source:'من أسئلة الورقة',prompt:'تتحدث ريم بثقة واحترام عند التعبير عن أفكارها.',correct:0,why:'التحدث بثقة واحترام من أهم مهارات التواصل.'},
+      {id:'c03',lesson:1,type:'tf',source:'من أسئلة الورقة',prompt:'يصغي أحمد بتركيز دون مقاطعة والديه.',correct:0,why:'الإصغاء بتركيز دون مقاطعة من أهم مهارات التواصل.'},
+      {id:'c04',lesson:1,type:'tf',source:'من أسئلة الورقة',prompt:'يتحدث حسن بلغة بسيطة ومفهومة عند الحديث مع زملائه.',correct:0,why:'التحدث بلغة بسيطة ومفهومة يساعد على التواصل.'},
+      {id:'c05',lesson:1,type:'tf',source:'من أسئلة الورقة',prompt:'محمود يقاطع زملاءه ولا يستمع لهم بإصغاء.',correct:1,why:'الصحيح هو الاستماع والإصغاء بتركيز دون مقاطعة الآخرين.'},
+      {id:'c06',lesson:1,type:'mcq',prompt:'تحدث مهارات التواصل بين:',options:['شخصين أو أكثر','شخص واحد فقط','الكتب وحدها'],correct:0,why:'تشمل مهارات التواصل مشاركة الأفكار وتبادل المعلومات بين شخصين أو أكثر.'},
+      {id:'c07',lesson:1,type:'multi',prompt:'اختر جميع طرق التواصل المذكورة في الملخص.',options:['التواصل اللفظي','التواصل غير اللفظي','التنمّر على الآخرين','مقاطعة المتحدث باستمرار'],correct:[0,1],why:'ذكر الملخص طريقتين للتواصل: اللفظية وغير اللفظية.'},
+      {id:'c08',lesson:1,type:'mcq',prompt:'تساعد مهارات التواصل على:',options:['بناء علاقات إيجابية مع الآخرين','تجنّب التفاعل مع الآخرين','مقاطعة الآخرين'],correct:0,why:'تساعد مهارات التواصل على التفاعل مع الآخرين وبناء علاقات إيجابية.'},
+      {id:'c09',lesson:1,type:'multi',prompt:'اختر جميع فوائد مهارات التواصل المذكورة في الملخص.',options:['تعزيز فرص النجاح والتطور','تجنّب سوء الفهم والاختلاف مع الآخرين','منع مشاركة الأفكار','زيادة سوء الفهم بين الأشخاص'],correct:[0,1],why:'تعزز مهارات التواصل فرص النجاح والتطور وتساعد على تجنّب سوء الفهم والاختلاف مع الآخرين.'},
+      {id:'c10',lesson:1,type:'mcq',prompt:'أي سلوك يُعد من مهارات التواصل؟',options:['التحدث بثقة واحترام','مقاطعة المتحدث','عدم احترام رأي الآخرين'],correct:0,why:'التحدث بثقة واحترام من أهم مهارات التواصل.'},
+      {id:'c11',lesson:1,type:'mcq',prompt:'كيف نُصغي للآخرين بطريقة صحيحة؟',options:['بتركيز ودون مقاطعة','بمقاطعتهم كثيرًا','دون الانتباه إليهم'],correct:0,why:'الإصغاء بتركيز دون مقاطعة إحدى مهارات التواصل المهمة.'},
+      {id:'c12',lesson:1,type:'multi',prompt:'اختر جميع الأمثلة الصحيحة على مهارات التواصل.',options:['استخدام لغة الجسد','فهم مشاعر الآخرين','تجاهل المتحدث','الإصغاء بتركيز دون مقاطعة'],correct:[0,1,3],why:'يشمل التواصل الجيد استخدام لغة الجسد، وفهم مشاعر الآخرين، والإصغاء بتركيز دون مقاطعة.'},
+      {id:'c13',lesson:1,type:'mcq',prompt:'من مهارات التواصل المذكورة في الملخص:',options:['فهم مشاعر الآخرين','تجاهل مشاعر الآخرين','الامتناع عن تبادل الأفكار'],correct:0,why:'فهم مشاعر الآخرين مذكور ضمن أهم مهارات التواصل.'},
+      {id:'c14',lesson:1,type:'mcq',prompt:'ما مفتاح التواصل الناجح؟',options:['الاستماع الجيد','المقاطعة المتكررة','التحدث دون إصغاء'],correct:0,why:'ورد في الملخص أن الاستماع الجيد مفتاح التواصل الناجح.'},
+      {id:'c15',lesson:1,type:'multi',prompt:'اختر جميع ما يركز عليه الاستماع الجيد.',options:['فهم معاني الكلمات','نبرة الصوت','لغة الجسد','مقاطعة المتحدث'],correct:[0,1,2],why:'يركز الاستماع الجيد على فهم معاني الكلمات ونبرة الصوت ولغة الجسد.'},
+      {id:'c16',lesson:1,type:'multi',prompt:'اختر جميع وسائل التكنولوجيا المفيدة لتعزيز التواصل المذكورة في الملخص.',options:['مكالمات الفيديو','التطبيقات التعليمية','مقاطعة الأصدقاء','تجاهل الآخرين'],correct:[0,1],why:'ذكر الملخص مكالمات الفيديو والتطبيقات التعليمية بوصفها وسائل مفيدة لتعزيز مهارات التواصل.'},
+      {id:'c17',lesson:1,type:'mcq',prompt:'متى تكون وسائل التكنولوجيا مفيدة لتعزيز مهارات التواصل؟',options:['عند استخدامها بطريقة صحيحة ومتوازنة','عند استخدامها دون توازن','عند تجاهل آداب التواصل'],correct:0,why:'تكون مفيدة عند استخدامها بطريقة صحيحة ومتوازنة.'},
+      {id:'c18',lesson:1,type:'tf',prompt:'يعتمد التواصل على الطريقة اللفظية وغير اللفظية.',correct:0,why:'ذكر الملخص الطريقتين: اللفظية وغير اللفظية.'},
+      {id:'c19',lesson:1,type:'multi',prompt:'اختر جميع الوسائل التي يمكن بها تبادل المعلومات وفق الورقة.',options:['الكلمات المنطوقة','الكلمات الكتابية','الإشارات ولغة الجسد','مقاطعة المتحدث'],correct:[0,1,2],why:'تتم مشاركة الأفكار وتبادل المعلومات بالكلمات المنطوقة أو الكتابية أو الإشارات ولغة الجسد.'},
+      {id:'c20',lesson:1,type:'multi',prompt:'اختر جميع مهارات التواصل الأربع المذكورة في الملخص.',options:['التحدث بثقة واحترام','الإصغاء بتركيز دون مقاطعة','استخدام لغة الجسد','فهم مشاعر الآخرين','تجاهل مشاعر الآخرين'],correct:[0,1,2,3],why:'المهارات الأربع: التحدث بثقة واحترام، والإصغاء دون مقاطعة، واستخدام لغة الجسد، وفهم مشاعر الآخرين.'},
+      {id:'b01',lesson:2,type:'mcq',source:'من أسئلة الورقة',prompt:'ما المقصود بالتنمّر؟',options:[
+        'سلوك عدواني متكرر يهدف إلى الإساءة إلى الآخرين وإظهار القوة والسيطرة على الضحية',
+        'القدرة على مشاركة الأفكار وبناء علاقات إيجابية',
+        'الإصغاء للآخرين باحترام دون مقاطعة'],correct:0,why:'التنمّر سلوك عدواني متكرر قد يكون جسديًا أو لفظيًا أو اجتماعيًا أو إلكترونيًا، ويهدف إلى الإساءة إلى الآخرين.'},
+      {id:'b02',lesson:2,type:'tf',source:'من أسئلة الورقة',prompt:'يُعد المرشد التربوي/المرشدة التربوية خط الدفاع الأول لمواجهة التنمّر داخل المدرسة.',correct:0,why:'هذه العبارة صحيحة كما وردت في إجابات أسئلة الدرس الثاني.'},
+      {id:'b03',lesson:2,type:'tf',source:'من أسئلة الورقة',prompt:'تُعد الألعاب الإلكترونية المعتمدة على العنف من أسباب التنمّر.',correct:0,why:'وردت هذه العبارة صحيحة في الورقة.'},
+      {id:'b04',lesson:2,type:'tf',source:'من أسئلة الورقة',prompt:'يُصاب الشخص المتعرض للتنمّر بآلام في المعدة والصداع أحيانًا.',correct:0,why:'ذُكرت آلام المعدة والصداع من الآثار التي قد تصيب الشخص المتعرض للتنمّر.'},
+      {id:'b05',lesson:2,type:'mcq',prompt:'كيف وُصف التنمّر في تعريف الدرس؟',options:['سلوك عدواني متكرر','سلوك تواصل إيجابي','استماع جيد دون مقاطعة'],correct:0,why:'التنمّر سلوك عدواني متكرر.'},
+      {id:'b06',lesson:2,type:'mcq',prompt:'ما الهدف من سلوك التنمّر؟',options:['الإساءة إلى الآخرين','بناء علاقات إيجابية','فهم مشاعر الآخرين'],correct:0,why:'التعريف: سلوك عدواني متكرر يهدف إلى الإساءة إلى الآخرين.'},
+      {id:'b07',lesson:2,type:'multi',prompt:'اختر جميع أشكال التنمّر الواردة في الورقة.',options:['التنمّر الجسدي','التنمّر اللفظي','التنمّر الاجتماعي','التنمّر الإلكتروني','الاستماع الجيد'],correct:[0,1,2,3],why:'الأشكال الواردة: جسدي، ولفظي، واجتماعي، وإلكتروني.'},
+      {id:'b08',lesson:2,type:'mcq',prompt:'ماذا يُظهر الشخص المتنمّر تجاه الضحية؟',options:['القوة والسيطرة','الاستماع الجيد','الاحترام والتفاهم'],correct:0,why:'يُظهر الشخص المتنمّر القوة والسيطرة على الضحية.'},
+      {id:'b09',lesson:2,type:'tf',prompt:'يقتصر التنمّر على الإساءة الجسدية فقط.',correct:1,why:'التنمّر قد يكون جسديًا أو لفظيًا أو اجتماعيًا أو إلكترونيًا.'},
+      {id:'b10',lesson:2,type:'mcq',prompt:'أي مما يأتي قد يحدث للشخص المتعرّض للتنمّر؟',options:['آلام في المعدة والصداع أحيانًا','فهم معاني الكلمات ونبرة الصوت','التحدث بثقة واحترام'],correct:0,why:'ورد في الورقة أن المتعرض للتنمّر قد يُصاب بآلام المعدة والصداع أحيانًا.'},
+      {id:'b11',lesson:2,type:'tf',prompt:'يُعد التنمّر الإلكتروني أحد أشكال التنمّر المذكورة في الدرس.',correct:0,why:'ورد التنمّر الإلكتروني ضمن أشكال التنمّر في التعريف.'}
+    ];
+
+  var KEY = 'life_skills_grade5_infinix_android12_v5';
+  var app = document.getElementById('app');
+  var state = null;
+  var shuffle = false;
+  var versions = {1:'مهارات التواصل',2:'التعامل مع التنمّر'};
+  function escapeHTML(value) {
+    return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function getQuestion(id) {for(var i=0;i<BANK.length;i++){if(BANK[i].id===id){return BANK[i];}}return null;}
+  function rawOptions(q){return q.type==='tf'?TF:q.options;}
+  function shuffledIndices(n) {var a=[],i,j,x;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));x=a[i];a[i]=a[j];a[j]=x;}return a;}
+  function permOptions(q){var p=state.optionOrder[q.id],a=rawOptions(q),out=[];for(var i=0;i<p.length;i++)out.push(a[p[i]]);return out;}
+  function rightIndices(q){var orig=q.type==='multi'?q.correct:[q.correct],out=[],p=state.optionOrder[q.id];for(var i=0;i<orig.length;i++){for(var j=0;j<p.length;j++){if(p[j]===orig[i]){out.push(j);break;}}}out.sort(function(a,b){return a-b;});return out;}
+  function listContains(a,n){for(var i=0;i<a.length;i++){if(a[i]===n)return true;}return false;}
+  function sortedCopy(a){return a.slice(0).sort(function(x,y){return x-y;});}
+  function equalLists(a,b){if(a.length!==b.length)return false;var aa=sortedCopy(a),bb=sortedCopy(b);for(var i=0;i<aa.length;i++){if(aa[i]!==bb[i])return false;}return true;}
+  function getCurrent(){return getQuestion(state.order[state.current]);}
+  function persist(){try{window.localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  function scrollUp(){try{window.scrollTo(0,0);}catch(e){}}
+  function bind(id,fn){var el=document.getElementById(id);if(el)el.addEventListener('click',fn,false);}
+  function makeTag(text){return '<span class="chip">'+escapeHTML(text)+'</span>';}
+  function load(){
+    try{
+      var v=JSON.parse(window.localStorage.getItem(KEY));
+      if(!v||!v.order||v.order.length!==BANK.length||!v.answers||!v.drafts||!v.optionOrder)return;
+      if(typeof v.current!=='number'||v.current<0||v.current>=BANK.length)return;
+      if(v.view!=='quiz'&&v.view!=='results')return;
+      for(var i=0;i<BANK.length;i++)if(!getQuestion(v.order[i]))return;
+      state=v;
+    }catch(e){}
+  }
+  function home(){
+    var resume=state&&state.view==='quiz';
+    var html='';
+    html+='<section class="card"><div class="eyebrow">امتحان تفاعلي • الصف الخامس</div>';
+    html+='<h2 class="hero-title">تدرّب، أجب، واعرف نتيجتك ⭐</h2>';
+    html+='<p class="lead">يشمل الامتحان <strong>مهارات التواصل</strong> و<strong>التعامل مع التنمّر</strong> من الصور المرفقة فقط.</p>';
+    html+='<div class="lesson-count">📚 جميع الأسئلة إلزامية: <strong>31 سؤالًا</strong> من الدرسين.</div>';
+    html+='<div class="note"><strong>أنواع الأسئلة:</strong> صح أو خطأ، اختيار إجابة واحدة، أو اختيار جميع الإجابات الصحيحة. <strong>لا توجد أسئلة كتابية.</strong></div>';
+    html+='<label class="settings"><input id="shuffle" type="checkbox"'+(shuffle?' checked':'')+'> خلط ترتيب الأسئلة في كل محاولة</label>';
+    html+='<button type="button" class="primary full" id="start">ابدأ الامتحان ←</button>';
+    if(resume)html+='<button type="button" class="secondary full" id="resume" style="margin-top:10px">متابعة المحاولة السابقة</button>';
+    html+='<div class="note"><strong>طريقة الحل:</strong> حدّد الإجابة أو الإجابات، ثم اضغط <b>إرسال الإجابة</b> لعرض التصحيح، ثم اضغط <b>السؤال التالي</b>. بعد السؤال الأخير تظهر النتيجة.</div>';
+    html+='<div class="version">نسخة مهيّأة لـ Infinix Hot 20 / Android 12 • يُفتح الملف في Google Chrome</div></section>';
+    app.innerHTML=html;
+    var cb=document.getElementById('shuffle');
+    if(cb)cb.addEventListener('change',function(){shuffle=cb.checked;},false);
+    bind('start',startExam);
+    bind('resume',function(){state.view='quiz';persist();quiz();scrollUp();});
+  }
+  function startExam(){
+    var order=[],index,i,q,positions={},temp;
+    for(i=0;i<BANK.length;i++)order.push(BANK[i].id);
+    if(shuffle){for(i=order.length-1;i>0;i--){index=Math.floor(Math.random()*(i+1));temp=order[i];order[i]=order[index];order[index]=temp;}}
+    for(i=0;i<BANK.length;i++){q=BANK[i];positions[q.id]=q.type==='tf'?[0,1]:shuffledIndices(q.options.length);}
+    state={view:'quiz',current:0,order:order,optionOrder:positions,answers:{},drafts:{}};
+    persist();quiz();scrollUp();
+  }
+  function pickedChoice(index){
+    var q=getCurrent(),answer=state.answers[q.id],picks=state.drafts[q.id],newPicks=[],i;
+    if(answer)return;
+    if(q.type==='multi'){
+      if(picks){for(i=0;i<picks.length;i++)if(picks[i]!==index)newPicks.push(picks[i]);}
+      if(!picks||!listContains(picks,index))newPicks.push(index);
+    }else newPicks=[index];
+    state.drafts[q.id]=newPicks;
+    persist();quiz();
+  }
+  function submit(){
+    var q=getCurrent(),pick=state.drafts[q.id]||[],right=rightIndices(q);
+    if(state.answers[q.id]||pick.length===0)return;
+    state.answers[q.id]={choices:sortedCopy(pick),correct:equalLists(pick,right)};
+    persist();quiz();
+  }
+  function next(){
+    var q=getCurrent();
+    if(!state.answers[q.id])return;
+    if(state.current===BANK.length-1){state.view='results';persist();results();}
+    else {state.current++;persist();quiz();}
+    scrollUp();
+  }
+  function quiz(){
+    var q=getCurrent();if(!q){home();return;}
+    var answer=state.answers[q.id],sent=!!answer;
+    var picks=sent?answer.choices:(state.drafts[q.id]||[]);
+    var opts=permOptions(q),right=rightIndices(q),number=state.current+1;
+    var kind=q.type==='tf'?'صح أم خطأ':(q.type==='multi'?'اختر جميع الإجابات الصحيحة':'اختر إجابة واحدة صحيحة');
+    var html='<section class="card"><div class="toprow">'+makeTag(versions[q.lesson])+'<span class="chip secondary-chip">السؤال '+number+' من '+BANK.length+'</span></div>';
+    html+='<div class="progress"><div style="width:'+(number*100/BANK.length)+'%"></div></div>';
+    html+='<div class="eyebrow">'+kind+'</div>';
+    html+='<h2 class="question">'+escapeHTML(q.prompt)+'</h2>';
+    html+='<div class="type-instructions">'+(q.type==='multi'?'يمكن تحديد أكثر من إجابة. اختر جميع الإجابات الصحيحة.':'اختر إجابة واحدة فقط.')+'</div><div class="answers">';
+    for(var i=0;i<opts.length;i++){
+      var selected=listContains(picks,i),cl='',letter='';
+      if(sent)cl=listContains(right,i)?' correct':(selected?' wrong':' muted');
+      else if(selected)cl=' selected';
+      letter=q.type==='tf'?(i===0?'✓':'✕'):(q.type==='multi'?(selected?'☑':'□'):['أ','ب','ج','د','هـ','و'][i]);
+      html+='<button class="choice'+cl+'" type="button" data-choice="'+i+'" aria-pressed="'+(selected?'true':'false')+'"'+(sent?' disabled':'')+'><span class="letter">'+letter+'</span><span>'+escapeHTML(opts[i])+'</span></button>';
+    }
+    html+='</div>';
+    if(sent){
+      html+='<div class="feedback'+(answer.correct?'':' error')+'" role="status"><strong>'+(answer.correct?'✓ إجابة صحيحة!':'✕ إجابة غير صحيحة')+'</strong>';
+      if(!answer.correct){
+        var names=[];for(var r=0;r<right.length;r++)names.push(escapeHTML(opts[right[r]]));
+        html+='<p><b>الإجابة الصحيحة:</b> '+names.join('، ')+'</p>';
+      }
+      html+='<p>'+escapeHTML(q.why)+'</p></div>';
+      html+='<div class="nav"><button class="primary" type="button" id="next">'+(number===BANK.length?'عرض النتيجة ←':'السؤال التالي ←')+'</button></div>';
+    }else{
+      html+='<div class="nav"><button type="button" class="primary" id="submit"'+(picks.length===0?' disabled':'')+'>إرسال الإجابة ✓</button></div>';
+      html+='<p class="smallhint">لن تظهر نتيجة إجابتك قبل الضغط على «إرسال الإجابة».</p>';
+    }
+    html+='</section><button type="button" class="subtle full compact" id="home">العودة إلى البداية</button>';
+    app.innerHTML=html;
+    if(!sent){
+      var buttons=app.querySelectorAll('[data-choice]');
+      for(var j=0;j<buttons.length;j++){
+        (function(b){b.addEventListener('click',function(){pickedChoice(parseInt(b.getAttribute('data-choice'),10));},false);})(buttons[j]);
+      }
+      bind('submit',submit);
+    }else bind('next',next);
+    bind('home',function(){home();scrollUp();});
+  }
+  function results(){
+    var count=0,missed=[],i,id,q,a,right,opts,selected,j,names,own,html='';
+    for(i=0;i<state.order.length;i++){
+      id=state.order[i];a=state.answers[id];
+      if(a&&a.correct)count++;else missed.push(id);
+    }
+    var percent=Math.round(100*count/BANK.length);
+    var headline=percent===100?'ممتاز! جميع إجاباتك صحيحة 🌟':percent>=80?'أحسنت! أداء رائع 👏':percent>=60?'عمل جيد، واصل التدريب 💪':'راجع إجاباتك وحاول مرة أخرى 📚';
+    html+='<section class="card"><div class="eyebrow">نتيجة الامتحان الكامل</div>';
+    html+='<div class="result-score"><div class="circle"><span>'+percent+'%</span></div><h2>'+headline+'</h2><p>أكملت جميع الأسئلة الـ31.</p></div>';
+    html+='<div class="metrics"><div class="metric"><strong>'+BANK.length+'</strong><small>مجموع الأسئلة</small></div><div class="metric"><strong style="color:#137a4c">'+count+'</strong><small>صحيحة</small></div><div class="metric"><strong style="color:#b42336">'+missed.length+'</strong><small>غير صحيحة</small></div></div>';
+    html+='<button type="button" class="primary full" id="again">إعادة الامتحان كاملًا</button>';
+    if(missed.length){
+      html+='<h3 class="section-title">مراجعة الأخطاء ('+missed.length+')</h3>';
+      for(i=0;i<missed.length;i++){
+        id=missed[i];q=getQuestion(id);a=state.answers[id];opts=permOptions(q);right=rightIndices(q);
+        own=[];selected=a?a.choices:[];
+        for(j=0;j<selected.length;j++)own.push(escapeHTML(opts[selected[j]]));
+        names=[];for(j=0;j<right.length;j++)names.push(escapeHTML(opts[right[j]]));
+        html+='<div class="review-item"><strong>'+escapeHTML(q.prompt)+'</strong><p class="your-answer">إجابتك: '+(own.length?own.join('، '):'لا توجد إجابة')+'</p><p>الصحيح: '+names.join('، ')+'</p><p>'+escapeHTML(q.why)+'</p></div>';
+      }
+    }else html+='<div class="feedback"><strong>✓ لا توجد أخطاء!</strong></div>';
+    html+='</section>';
+    app.innerHTML=html;
+    bind('again',startExam);
+  }
+  try{
+    load();
+    if(state&&state.view==='results'){results();}
+    else if(state&&state.view==='quiz'){quiz();}
+    else home();
+  }catch(err){
+    app.innerHTML='<section class="card"><h2>تعذّر تحميل الامتحان داخل عارض الملفات</h2><p>على هاتف Infinix Hot 20: افتح تطبيق الملفات ← التنزيلات ← ملف الامتحان ← فتح باستخدام Google Chrome. لا تستخدم معاينة واتساب أو HTML Viewer.</p><p>'+escapeHTML(err && err.message?err.message:'')+'</p></section>';
+  }
+})();
+</script>
+</body></html>
